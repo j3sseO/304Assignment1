@@ -1,0 +1,44 @@
+Building configuration...
+
+Current configuration:
+!
+frr version 7.5.1
+frr defaults traditional
+hostname PARI_router
+!
+interface host
+ ip address 37.103.0.2/24
+!
+interface lo
+ ip address 37.153.0.1/32
+!
+interface matrix_37
+ ip address 37.0.198.1/24
+!
+interface port_HAML
+ ip address 37.0.1.2/30
+!
+interface port_LOND
+ ip address 37.0.4.1/30
+!
+interface port_NEWY
+ ip address 37.0.5.1/30
+!
+interface port_TRGA
+ ip address 37.0.3.1/30
+!
+interface port_ZURI
+ ip address 37.0.6.1/30
+!
+router ospf
+ ospf router-id 37.153.0.1
+ redistribute connected
+ network 37.0.1.0/30 area 0
+ network 37.0.3.0/30 area 0
+ network 37.0.5.0/30 area 0
+ network 37.0.6.0/30 area 0
+ network 37.0.198.0/24 area 0
+!
+line vty
+!
+end
